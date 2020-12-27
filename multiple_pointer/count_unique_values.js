@@ -5,9 +5,11 @@ const countUniqueValues = (arr) => {
   let uniqueValues = 0;
   let first = 0,
     second = 1;
+  //first solution
   for (const item of arr) {
     uniqueSet.add(item);
   }
+  //secons solution
   while (first < arr.length) {
     if (arr[first] !== arr[second]) {
       uniqueValues++;
@@ -18,8 +20,17 @@ const countUniqueValues = (arr) => {
       second++;
     }
   }
+  //third solution - author's
+  let y = 0;
 
-  return [uniqueSet.size, uniqueValues];
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[y] !== arr[index]) {
+      y++;
+      arr[y] = arr[index];
+    }
+  }
+
+  return [uniqueSet.size, uniqueValues, arr.length === 0 ? 0 : y + 1];
 };
 
 const arr1 = [1, 1, 1, 1, 1, 2];
