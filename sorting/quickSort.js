@@ -48,9 +48,9 @@ Array.prototype.quick_sort = function () {
     //concat pivot
     .concat(this.filter((x) => x == pivot))
     //quick sort on the right side
-    .concat(this.filter((x) => x > pivot)).quick_sort();
+    .concat(this.filter((x) => x > pivot).quick_sort());
 };
 // console.log(quickSort(arr1));
 
-// console.log(arr2.quick_sort());
+console.log(arr2.quick_sort());
 arr2.quick_sort()
