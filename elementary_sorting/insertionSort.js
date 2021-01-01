@@ -5,7 +5,7 @@ let arr2 = [-5, -71, 2, 3, 0, 5, 3, 6, -7, 8, 9, 10, -5];
 // swap(arr, 0, 1);
 // console.log(arr);
 
-const insertionSort = (arr) => {
+export const insertionSort = (arr) => {
   let j;
   for (let i = 1; i < arr.length; i++) {
     let currentVal = arr[i];
@@ -21,5 +21,5 @@ const insertionSort = (arr) => {
 
 insertionSort(arr);
 insertionSort(arr2);
-console.log(arr);
-console.log(arr2);
+// console.log(arr);
+// console.log(arr2);
