@@ -28,7 +28,7 @@ const merge = (arr1, arr2) => {
   return sorted;
 };
 
-const mergeSort = (arr) => {
+export const mergeSort = (arr) => {
   if (arr.length <= 1) {
     return arr;
   }
@@ -38,7 +38,7 @@ const mergeSort = (arr) => {
   return merge(arrLeft, arrRight);
 };
 
-console.log(mergeSort(arr2));
+// console.log(mergeSort(arr2));
 
 //Just for clarity
 // divide an array into two halves until it's only one element
@@ -55,3 +55,4 @@ const divide = (arr) => {
 };
 // divide(arr2);
 // console.log(divide(arr2));
+
