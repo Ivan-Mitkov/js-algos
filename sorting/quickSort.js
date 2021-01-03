@@ -35,7 +35,7 @@ export const quickSort = (arr, left = 0, right = arr.length) => {
 Array.prototype.quick_sort = function () {
   //if there is no more then one element
   if (this.length < 2) {
-    console.log(this)
+    // console.log(this)
     return this;
   }
   //more elements so take middle
@@ -52,5 +52,5 @@ Array.prototype.quick_sort = function () {
 };
 // console.log(quickSort(arr1));
 
-console.log(arr2.quick_sort());
+// console.log(arr2.quick_sort());
 arr2.quick_sort()

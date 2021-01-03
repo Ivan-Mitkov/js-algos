@@ -1,8 +1,12 @@
 import { mergeSort } from "./mergeSort.js";
 import { quickSort } from "./quickSort.js";
+import { radixSort } from "./radix.js";
 import { insertionSort } from "../elementary_sorting/insertionSort.js";
 
 let arr3 = Array.apply(null, Array(10000)).map(function () {
+  return Math.random() * 10000;
+});
+let arr311 = Array.apply(null, Array(10000)).map(function () {
   return Math.random() * 10000;
 });
 
@@ -14,16 +18,26 @@ let arr4 = Array.apply(null, Array(5000)).map((x, i) => -i);
 let arr41 = Array.apply(null, Array(5000)).map((x, i) => -i);
 let arr5 = Array.apply(null, Array(5000)).map((x, i) => i);
 
+setTimeout(() => {
+  console.log();
+  const s2 = new Date();
+  radixSort(arr3);
+  const e2 = new Date();
+  // console.log(arr3);
+  console.log("Radix sort", new Date(e2 - s2).getMilliseconds());
+}, 0);
 
 setTimeout(() => {
   console.log();
   const s2 = new Date();
-  insertionSort(arr3);
+  insertionSort(arr311);
   const e2 = new Date();
   // console.log(arr3);
   console.log("Insertion sort", new Date(e2 - s2).getMilliseconds());
-  arr3 = null;
+  arr311 = null;
 }, 1000);
+
+
 setTimeout(() => {
   console.log();
   const start = new Date();
