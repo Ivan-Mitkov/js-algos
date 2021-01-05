@@ -23,9 +23,12 @@ export class DoublyLinkedList {
       this.length++;
       return this;
     }
-
+    //this.tail is the old last
+    //it's NEXT is now the new last
     this.tail.next = newNode;
+    //previous of the new last is the old tail
     newNode.prev = this.tail;
+    //the new tail is the new node
     this.tail = newNode;
     this.length++;
     return this;
@@ -36,10 +39,18 @@ export class DoublyLinkedList {
       return undefined;
     }
     let last = this.tail;
-    //move tail -1
-    this.tail = last.prev;
-    //remove next from the new tail
-    this.tail.next = null;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      //move tail -1
+      this.tail = last.prev;
+      //remove next from the new tail
+      this.tail.next = null;
+      //remove link with prev of the poped node
+      last.prev=null;
+    }
+
     this.length--;
     return last;
   }
