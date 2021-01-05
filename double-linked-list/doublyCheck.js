@@ -9,7 +9,23 @@ list.print();
 const last = list.pop();
 console.log(last);
 list.print();
-list.pop();
-console.log(list);
-list.pop();
-console.log(list);
+console.log("SHIFT");
+const first = list.shift();
+// console.log(first);
+list.print();
+// console.log(list);
+list.push(32);
+list.print();
+// console.log(list);
+
+list.shift();
+list.print();
+list.shift();
+
+// console.log(list);
+console.log("UNSHIFT")
+list.unshift(1)
+list.unshift(2)
+list.unshift(3)
+list.print()
+console.log(list)
