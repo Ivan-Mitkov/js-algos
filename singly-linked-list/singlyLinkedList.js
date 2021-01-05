@@ -170,7 +170,7 @@ export class SinglyLinkedList {
 
     //!moving from new tail to head
     //we have current if it's tail so it's next start as null
-    // null(lastious)=>current=>nextNode
+    // null(last)=>current=>nextNode
     for (let index = 0; index < this.length; index++) {
       //find next node as the next of current
       nextNode = current.next;
