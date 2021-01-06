@@ -108,7 +108,7 @@ export class DoublyLinkedList {
       }
       return current;
     }
-    console.log("From tail");
+    // console.log("From tail");
     let current = this.tail;
     let counter = this.length - 1;
     while (counter < position) {
