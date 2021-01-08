@@ -23,6 +23,7 @@ const bfs = (tree) => {
   //root is in the queue
   while (!queue.empty()) {
     const toVisit = queue.dequeue();
+    //push to visited after dequeue
     vistited.push(toVisit.val);
     if (toVisit.left) {
       queue.enqueue(toVisit.left);
