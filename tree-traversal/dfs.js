@@ -5,7 +5,7 @@ const dfsPreOrder = (tree) => {
   const visited = [];
 
   function helper(node) {
-    //push first recurse later
+    //push first recurse later root at start
     visited.push(node.val);
 
     if (node.left) {
@@ -30,7 +30,7 @@ const dfsPostOrder = (tree) => {
     if (node.right) {
       helper(node.right);
     }
-    //go to the last leaf first push later
+    //root at the end
     visited.push(node.val);
   }
   helper(root);
