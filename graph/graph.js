@@ -1,4 +1,19 @@
-class Graph {
+class Queue {
+  constructor() {
+    this.arr = new Array();
+  }
+  enqueue(val) {
+    return this.arr.push(val);
+  }
+  dequeue() {
+    return this.arr.shift();
+  }
+  empty() {
+    return this.arr.length === 0;
+  }
+}
+
+export class Graph {
   constructor() {
     this.adjacencyList = {};
   }
@@ -39,19 +54,70 @@ class Graph {
       delete this.adjacencyList[v];
     }
   }
+
+  traverseDfs(vertex) {
+    const vertices = [];
+    const visited = {};
+    //arrow function not creating other this so can use this.adjacencyList in dfs
+    const dfs = (vertex) => {
+      if (!vertex) {
+        return;
+      }
+      vertices.push(vertex);
+      visited[vertex] = true;
+      for (const v of this.adjacencyList[vertex]) {
+        if (!visited[v]) {
+          dfs(v);
+        }
+      }
+    };
+
+    dfs(vertex);
+    return vertices;
+  }
+
+  traverseDfsIterative(start) {
+    const stack = [];
+    const visited = {};
+    //push the starting
+    stack.push(start);
+    const result = [];
+    while (stack.length > 0) {
+      //get the start
+      let vertex = stack.pop();
+
+      if (!visited[vertex]) {
+        //label it as discovered
+        visited[vertex] = true;
+        result.push(vertex);
+        //push it into the stack all it's neighbours
+        this.adjacencyList[vertex].forEach((elem) => stack.push(elem));
+      }
+    }
+    return result;
+  }
+
+  bfs(vertex) {
+    const queue = new Queue();   
+    const visited = {};
+    const result = [];
+    queue.enqueue(vertex);
+    visited[vertex] = true;
+    
+    while (!queue.empty()) {
+      //get current to visit
+      let current = queue.dequeue();
+      //push it into results
+      result.push(current);
+      //put in queue all of current neighbours which are not visited yet
+      for (const item of this.adjacencyList[current]) {
+        if (!visited[item]) {
+          visited[item] = true;
+          queue.enqueue(item);
+        }
+      }
+    }
+
+    return result;
+  }
 }
-
-const g = new Graph();
-g.addVertex("Tokyo");
-g.addVertex("Tokyo");
-g.addEdge("Tokyo", "Osaka");
-g.addEdge("Tokyo", "Yokohama");
-g.addEdge("Tokyo", "Nagoia");
-g.addEdge("Yokohama", "Nagoia");
-g.addEdge("Osaka", "Nagoia");
-// g.removeVertex("Nagoia");
-console.log(g);
-g.removeVertex("Tokyo");
-console.log(g);
-
-
